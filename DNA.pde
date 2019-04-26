@@ -10,7 +10,7 @@ class DNA {
     }
   }
 
-  void fitness() {
+  float fitness() {
     int score = 0;
 
     for (int i = 0; i < genes.length; i++) {
@@ -20,6 +20,8 @@ class DNA {
     }
 
     fitness = float(score)/target.length();
+
+    return fitness;
   }
 
   DNA crossover(DNA partner) {
