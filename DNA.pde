@@ -27,11 +27,13 @@ class DNA {
   DNA crossover(DNA partner) {
     DNA child = new DNA();
 
-    int midpoint = int(random(genes.length));
-
     for (int i = 0; i < genes.length; i++) {
-      if (i > midpoint) child.genes[i] = genes[i];
-      else child.genes[i] = partner.genes[i];
+      int coinToss = int(random(2));
+      if (coinToss == 1) {
+        child.genes[i] = genes[i];
+      } else {
+        child.genes[i] = partner.genes[i];
+      }
     }
 
     return child;
