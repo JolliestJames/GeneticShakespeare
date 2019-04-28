@@ -26,7 +26,6 @@ public void setup() {
   
   background(0);
 
-  // target = "it is not enough for code to work";
   target = "written by someone who cares";
   mutationRate = 0.01f;
 
@@ -135,11 +134,13 @@ class DNA {
   public DNA crossover(DNA partner) {
     DNA child = new DNA();
 
-    int midpoint = PApplet.parseInt(random(genes.length));
-
     for (int i = 0; i < genes.length; i++) {
-      if (i > midpoint) child.genes[i] = genes[i];
-      else child.genes[i] = partner.genes[i];
+      int coinToss = PApplet.parseInt(random(2));
+      if (coinToss == 1) {
+        child.genes[i] = genes[i]; 
+      } else {
+        child.genes[i] = partner.genes[i];
+      }
     }
 
     return child;
